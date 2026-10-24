@@ -1,0 +1,5 @@
+body{font-family:Arial,sans-serif;max-width:640px;margin:40px auto;padding:0 16px}
+nav a{margin-right:12px}
+.error{color:#b00020}.success{color:#0a7a2f}
+input,textarea{display:block;margin:6px 0 2px;width:100%;padding:6px;box-sizing:border-box}
+.product-card{border:1px solid #ccc;padding:8px;margin:6px 0}

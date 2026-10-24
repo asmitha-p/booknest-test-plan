@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><title>Products - DemoShop</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Products</h1>
+<nav><a id="nav-dashboard" href="dashboard.html">Dashboard</a><a id="nav-products" href="products.html">Products</a>
+<a id="nav-contact" href="contact.html">Contact</a></nav>
+<input id="search-input" type="text" placeholder="Search products">
+<button id="search-button" type="button">Search</button>
+<div id="no-results" class="error" style="display:none">No products found</div>
+<div id="product-list"></div>
+<script>
+if (!sessionStorage.getItem('user')) { window.location.href = 'login.html'; }
+var products = ['Laptop Stand','Wireless Mouse','Mechanical Keyboard','USB-C Hub','Laptop Sleeve'];
+function render(list) {
+  var c = document.getElementById('product-list'); c.innerHTML = '';
+  list.forEach(function (n) { var d = document.createElement('div'); d.className = 'product-card'; d.textContent = n; c.appendChild(d); });
+  document.getElementById('no-results').style.display = list.length ? 'none' : 'block';
+}
+document.getElementById('search-button').addEventListener('click', function () {
+  var q = document.getElementById('search-input').value.trim().toLowerCase();
+  render(products.filter(function (n) { return n.toLowerCase().indexOf(q) !== -1; }));
+});
+render(products);
+</script></body></html>

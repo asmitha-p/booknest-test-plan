@@ -1,0 +1,20 @@
+<!DOCTYPE html><html><head><title>Login - DemoShop</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Login</h1>
+<div id="login-error" class="error" style="display:none"></div>
+<label>Username <input id="username" name="username" type="text"></label>
+<label>Password <input id="password" name="password" type="password"></label>
+<button id="login-button" type="button">Log In</button>
+<script>
+// Valid demo credentials: testuser / Password123!
+document.getElementById('login-button').addEventListener('click', function () {
+  var u = document.getElementById('username').value.trim();
+  var p = document.getElementById('password').value;
+  var err = document.getElementById('login-error');
+  err.style.display = 'block';
+  if (!u || !p) { err.textContent = 'Username and password are required'; return; }
+  if (u === 'testuser' && p === 'Password123!') {
+    sessionStorage.setItem('user', u);
+    window.location.href = 'dashboard.html';
+  } else { err.textContent = 'Invalid username or password'; }
+});
+</script></body></html>

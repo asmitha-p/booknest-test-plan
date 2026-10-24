@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><title>Dashboard - DemoShop</title><link rel="stylesheet" href="style.css"></head>
+<body><h1>Dashboard</h1>
+<nav><a id="nav-dashboard" href="dashboard.html">Dashboard</a><a id="nav-products" href="products.html">Products</a>
+<a id="nav-contact" href="contact.html">Contact</a><button id="logout-button" type="button">Log Out</button></nav>
+<p id="welcome-message"></p>
+<script>
+var user = sessionStorage.getItem('user');
+if (!user) { window.location.href = 'login.html'; }
+else { document.getElementById('welcome-message').textContent = 'Welcome, ' + user; }
+document.getElementById('logout-button').addEventListener('click', function () {
+  sessionStorage.removeItem('user'); window.location.href = 'login.html';
+});
+</script></body></html>
